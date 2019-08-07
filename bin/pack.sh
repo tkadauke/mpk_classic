@@ -1,6 +1,7 @@
 #!/bin/bash
 
 PASSWORD="soho0909"
+mkdir -p models
 
 for model_src in src/*; do
   model_name="$(basename -- "$model_src")"
