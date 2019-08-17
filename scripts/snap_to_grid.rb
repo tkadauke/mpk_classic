@@ -36,8 +36,22 @@ class SnapToGrid
   end
 
 private
+  def help
+    <<~end
+      Usage: #{$0} FILE
+      
+      This script will snap all the pieces of an LDraw model to a grid. The grid
+      is half-stud width in the x and z direction, and plate height in the y
+      direction. It will also align all rotations to the axes. Note that this
+      only makes sense for a model that doesn't have any angles; If your model
+      does have intentional angles, the results of this script will most likely
+      be undesirable.
+    end
+  end
+  
   def parser
     @parser ||= OptionParser.new.tap do |op|
+      op.banner = help
     end
   end
 end
